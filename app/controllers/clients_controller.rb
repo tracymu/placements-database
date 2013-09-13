@@ -1,5 +1,8 @@
 class ClientsController < ApplicationController
 
+
+	before_action :find_client, :only => [:show, :edit, :update, :destroy] 
+
 	def index
 		@clients = Client.all
 
@@ -25,8 +28,16 @@ class ClientsController < ApplicationController
 
 	def show
 
+
 	end
 	
+	protected
+
+
+  def find_client
+    @client = Client.find(params[:id])
+  end
+
 
 
 end

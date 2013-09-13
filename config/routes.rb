@@ -3,6 +3,7 @@ LinksDatabase::Application.routes.draw do
   devise_for :users
 
 
+
   root 'clients#index'
 
   resources :clients do

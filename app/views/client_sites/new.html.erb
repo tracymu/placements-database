@@ -1,6 +1,6 @@
 <h1>Add a New Client Site</h1>
 
-<%= form_for [@client_site,@client]  do |f| %>
+<%= form_for [@client, @client_site]  do |f| %>
 
 	<% @client_site.errors.full_messages.each do |msg| %>
   			<p class="text-warning"><%= msg %></p>

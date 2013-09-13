@@ -4,11 +4,6 @@ class ClientSitesController < ApplicationController
   before_action :find_client, :only => [:new, :create]
 
 
-	def index
-		@client_sites = ClientSite.all
-
-	end
-
 
 	def new
 		@client_site = @client.client_sites.new
@@ -16,21 +11,18 @@ class ClientSitesController < ApplicationController
 	end
 
 	def create
-		@client_site = ClientSite.new params.require(:client_site).permit(:name, :url)
+    @client_site = @client.client_sites.new params.require(:client_site).permit(:name, :url)
+    @client_site.user = current_user
 
-		if @client_site.save
-			redirect_to client_site_path(@client_site)
-		else
-			render 'new'	
-		end
-
-	end
-
-
-	def show
+    if @client_site.save
+      redirect_to client_path(@client), :notice => "Website Successfully Saved"  
+    else
+      render 'new'
+    end
+    
 
 	end
-	
+
 
 
   protected
