@@ -1,0 +1,18 @@
+<h1>This is the client_sites show page</h1>
+
+
+
+	<h2><%= @client_site.name %></h2>
+	<h3><%= @client_site.url %></h3>
+	<p><%= link_to @client_site.url, @client_site.url, :target => 'blank' %></p>
+
+		<p><%= @client_site.pages_indexed %></p>	
+	<p><%= @client_site.backlinks %></p>
+		<p><%= @client_site.twitter_followers %></p>
+		<p><%= @client_site.twitter_handle %></p>
+		<p><%= @client_site.facebook_page %></p>
+		<p><%= @client_site.facebook_likes %></p>
+		<p><%= @client_site.google_plus_page %></p>
+		<p><%= @client_site.google_plus_likes %></p>
+
+		<p><%= link_to 'Edit', edit_client_client_site_path %>

@@ -5,7 +5,11 @@
 <p>I guess on this page you might also be able to 'add a target site'</p>
 
 <p>Here you can see a list of clients sites that you have access to and/or you can add a new site.</p>
-
+		<ul>
+				<% @client.client_sites.each do |client_site| %>
+					<li><%= link_to client_site.name, client_client_site_path(@client, client_site) %></li>
+				<% end %>
+			</ul>
 
 <%= link_to "Add a Client's Site", new_client_client_site_path(@client) %>
 

@@ -1,7 +1,7 @@
 class ClientSitesController < ApplicationController
 
 
-  before_action :find_client, :only => [:new, :create]
+  before_action :find_client, :only => [:new, :create, :show ]
 
 
 
@@ -11,7 +11,10 @@ class ClientSitesController < ApplicationController
 	end
 
 	def create
-    @client_site = @client.client_sites.new params.require(:client_site).permit(:name, :url)
+    @client_site = @client.client_sites.new params.require(:client_site).permit(:name, :url, :page_rank,
+                                                            :pages_indexed,:backlinks,:twitter_followers,:twitter_handle,
+                                                            :facebook_page,:facebook_likes,:google_plus_page, 
+                                                            :google_plus_likes )
     @client_site.user = current_user
 
     if @client_site.save
@@ -21,7 +24,21 @@ class ClientSitesController < ApplicationController
     end
     
 
+    def edit
+    @client_site = ClientSite.find(params[:id])
+
+
+    end
+
+
 	end
+
+  def show
+    
+    @client_site = ClientSite.find(params[:id])
+
+  end
+
 
 
 

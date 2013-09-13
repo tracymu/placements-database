@@ -6,6 +6,9 @@ class ClientSite < ActiveRecord::Base
 	validates_uniqueness_of :name, :case_sensitive => false
 
 
+	before_validation :fix_url_protocol
+
+
 	def to_s
 		client_id
 	end
