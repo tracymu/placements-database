@@ -1,0 +1,18 @@
+<h1>Add a New Client</h1>
+
+<%= form_for @client  do |f| %>
+
+	<% @client.errors.full_messages.each do |msg| %>
+  			<p class="text-warning"><%= msg %></p>
+			<% end %>
+      <div><%= f.label :name %></br>
+      <%= f.text_field :name %></div>
+  
+
+			</br>
+    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
+
+<% end %>
+</br>
+
+<p>Back to <%= link_to "home", root_path %></p>
