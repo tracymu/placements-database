@@ -4,6 +4,7 @@ LinksDatabase::Application.routes.draw do
 
 
 
+
   root 'clients#index'
 
   resources :clients do
