@@ -1,6 +1,7 @@
 class ClientSite < ActiveRecord::Base
 
 	belongs_to :client
+	belongs_to :user
 
 	validates_uniqueness_of :name, :case_sensitive => false
 
