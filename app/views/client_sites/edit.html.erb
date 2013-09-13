@@ -1,6 +1,6 @@
 <h1>Edit client_site</h1>
 
-<%= form_for[@client_site]  do |f| %>
+<%= form_for [@client, @client_site] do |f| %>
 
 	<% @client_site.errors.full_messages.each do |msg| %>
   			<p class="text-warning"><%= msg %></p>
@@ -30,7 +30,7 @@
 
 
 			</br>
-    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
+    	<%= f.submit "Update", :class => 'btn btn-primary' %>
 
 <% end %>
 </br>
