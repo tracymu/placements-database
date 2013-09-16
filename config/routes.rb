@@ -8,7 +8,11 @@ LinksDatabase::Application.routes.draw do
   root 'clients#index'
 
   resources :clients do
-    resources :client_sites
+    resources :client_sites 
+  end
+
+  resources :client_sites, only: [] do
+    resources :target_sites   
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

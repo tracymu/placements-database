@@ -1,18 +1,27 @@
-<h1>This is the client_sites show page</h1>
+On this page do I want tabbed information like:
 
+Site info | Links Placed | Links in Progress
+	
 
 
 	<h2><%= @client_site.name %></h2>
-	<h3><%= @client_site.url %></h3>
+	<h4> Last updated on <%= @client_site.formatted_updated_at %></h4>
 	<p><%= link_to @client_site.url, @client_site.url, :target => 'blank' %></p>
 
-		<p><%= @client_site.pages_indexed %></p>	
-	<p><%= @client_site.backlinks %></p>
-		<p><%= @client_site.twitter_followers %></p>
-		<p><%= @client_site.twitter_handle %></p>
-		<p><%= @client_site.facebook_page %></p>
-		<p><%= @client_site.facebook_likes %></p>
-		<p><%= @client_site.google_plus_page %></p>
-		<p><%= @client_site.google_plus_likes %></p>
+		<p><strong>Pages Indexed:</strong> <%= @client_site.pages_indexed %></p>	
+	<p><strong>Backlinks: </strong><%= @client_site.backlinks %></p>
+		<p><strong>Twitter Handle:</strong> <%= @client_site.twitter_handle %></p>
+		<p><strong>Twitter Followers:</strong> <%= @client_site.twitter_followers %></p>
+		<p><strong>Facebook Page:</strong> <%= @client_site.facebook_page %></p>
+		<p><strong>Facebook Likes:</strong> <%= @client_site.facebook_likes %></p>
+		<p><strong>Google Plus Page:</strong> <%= @client_site.google_plus_page %></p>
+		<p><strong>Google Plus Likes: </strong><%= @client_site.google_plus_likes %></p>
 
 		<p><%= link_to 'Edit', edit_client_client_site_path %>
+
+
+<h3>Add a new target site</h3>
+
+
+<%= link_to "Add a Target Site", new_client_site_target_site_path(@client_site) %>
+

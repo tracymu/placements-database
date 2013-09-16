@@ -1,7 +1,6 @@
-<h1>Edit your website details</h1>
-<h2>Don't foget to click 'Update' at the bottom</h2>
+<h1>Add a New Client Site for <%= @client.name %></h1>
 
-<%= form_for [@client, @client_site] do |f| %>
+<%= form_for [@client_site, @target_site]  do |f| %>
 
 	<% @client_site.errors.full_messages.each do |msg| %>
   			<p class="text-warning"><%= msg %></p>
@@ -31,7 +30,7 @@
 
 
 			</br>
-    	<%= f.submit "Update", :class => 'btn btn-primary' %>
+    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
 
 <% end %>
 </br>

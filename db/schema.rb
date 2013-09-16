@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130913054004) do
+ActiveRecord::Schema.define(version: 20130916074212) do
 
   create_table "client_sites", force: true do |t|
     t.string   "name"
@@ -33,6 +33,31 @@ ActiveRecord::Schema.define(version: 20130913054004) do
 
   create_table "clients", force: true do |t|
     t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "site_relationships", force: true do |t|
+    t.integer  "client_site_id"
+    t.integer  "target_site_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "target_sites", force: true do |t|
+    t.string   "name"
+    t.string   "url"
+    t.boolean  "do_not_contact"
+    t.string   "contact_name"
+    t.integer  "page_rank"
+    t.integer  "backlinks"
+    t.integer  "twitter_followers"
+    t.integer  "facebook_likes"
+    t.integer  "google_plus_likes"
+    t.string   "twitter_handle"
+    t.string   "facebook_page"
+    t.string   "google_plus_page"
+    t.integer  "pages_indexed"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

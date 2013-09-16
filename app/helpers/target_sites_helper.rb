@@ -1,0 +1,2 @@
+module TargetSitesHelper
+end
