@@ -1,4 +1,4 @@
-class TargetWebsite < ActiveRecord::Base
+class TargetSite < ActiveRecord::Base
 	
 	has_many :site_relationships
 	has_many :client_sites, :through => :site_relationships
@@ -9,7 +9,7 @@ class TargetWebsite < ActiveRecord::Base
 
 	before_validation :fix_url_protocol
 
-
+	
 
 
 
