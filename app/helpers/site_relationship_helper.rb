@@ -1,0 +1,2 @@
+module SiteRelationshipHelper
+end

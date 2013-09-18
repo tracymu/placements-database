@@ -10,6 +10,10 @@ class TargetSite < ActiveRecord::Base
 	before_validation :fix_url_protocol
 
 	
+def formatted_updated_at	
+		self.updated_at.strftime "%d-%m-%Y"
+	end
+
 
 
 

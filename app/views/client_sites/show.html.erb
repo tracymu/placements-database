@@ -21,7 +21,11 @@ Site info | Links Placed | Links in Progress
 
 
 <h3>Add a new target site</h3>
-<h3>So here there is something wrong with my new target_site model</h3>
 
-<%= link_to "Add a Target Site", new_client_site_target_site_path(@client_site) %>
+<%= link_to "Add a Target Site", new_target_site_path %>
 
+<h2>The problem is, when I add a target_site, it doesn't add a Site_relationship</h2>
+
+<p>Ok so I don't want nested routes for these target sites, because I don't want the target sites to be related to only one single client site! So I am changing the routes file </p>
+
+<h3> And here we can have a list of sites that they want to contact</h3>

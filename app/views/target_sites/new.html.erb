@@ -1,8 +1,8 @@
-<h1>Add a New Target Site for <%= @client_site.name %></h1>
+<h1>Add a New site to target </h1>
 
 <%= form_for [@client_site, @target_site]  do |f| %>
 
-	<% @client_site.errors.full_messages.each do |msg| %>
+	<% @target_site.errors.full_messages.each do |msg| %>
   			<p class="text-warning"><%= msg %></p>
 			<% end %>
       <div><%= f.label :name %>

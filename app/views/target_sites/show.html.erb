@@ -1,1 +1,21 @@
-<h1>This is the show page for the target site</h1>
+<h1>This is the show page for the target_site</h1>
+
+
+
+	<h2><%= @target_site.name %></h2>
+	<p><%= link_to @target_site.url, @target_site.url, :target => 'blank' %></p>
+
+		<p><strong>Pages Indexed:</strong> <%= @target_site.pages_indexed %></p>	
+	<p><strong>Backlinks: </strong><%= @target_site.backlinks %></p>
+		<p><strong>Twitter Handle:</strong> <%= @target_site.twitter_handle %></p>
+		<p><strong>Twitter Followers:</strong> <%= @target_site.twitter_followers %></p>
+		<p><strong>Facebook Page:</strong> <%= @target_site.facebook_page %></p>
+		<p><strong>Facebook Likes:</strong> <%= @target_site.facebook_likes %></p>
+		<p><strong>Google Plus Page:</strong> <%= @target_site.google_plus_page %></p>
+		<p><strong>Google Plus Likes: </strong><%= @target_site.google_plus_likes %></p>
+
+		<p><%= link_to 'Edit', edit_target_site_path %>
+
+<p>Now what I think I want to do is like the 'choose a friend to recommend to', but 'choose from your client sites to list this as a relationship</p>
+
+<p>Then after you have established a SiteRelationship we will need to make it so that there is established a future_contact - That is, a task that needs to be done. And this will be related to a target site, user and client site. So a whole big nightmare really </p>
