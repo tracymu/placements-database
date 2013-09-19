@@ -7,12 +7,20 @@ LinksDatabase::Application.routes.draw do
 
   root 'clients#index'
 
+    get '/target_sites/list' => 'target_sites#list', :as => :target_site_list
+
+    get '/target_sites/:id/connect' => 'target_sites#connect', :as => :target_site_connect
+
+
+
   resources :clients do
     resources :client_sites 
   end
 
   # resources :client_sites, only: [] do
-    resources :target_sites   
+    resources :target_sites do 
+      resources :site_relationships 
+    end
   # end
 
   # The priority is based upon order of creation: first created -> highest priority.

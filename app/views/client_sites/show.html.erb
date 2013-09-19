@@ -7,7 +7,7 @@ Site info | Links Placed | Links in Progress
 	<h2><%= @client_site.name %></h2>
 	<h4> Last updated on <%= @client_site.formatted_updated_at %></h4>
 	<p><%= link_to @client_site.url, @client_site.url, :target => 'blank' %></p>
-
+		<p><strong>PageRank: </strong> <%= @client_site.page_rank %></p>
 		<p><strong>Pages Indexed:</strong> <%= @client_site.pages_indexed %></p>	
 	<p><strong>Backlinks: </strong><%= @client_site.backlinks %></p>
 		<p><strong>Twitter Handle:</strong> <%= @client_site.twitter_handle %></p>
@@ -24,6 +24,7 @@ Site info | Links Placed | Links in Progress
 
 <%= link_to "Add a Target Site", new_target_site_path %>
 
+<%= link_to "See All Target Sites", target_site_list_path %>
 <h2>The problem is, when I add a target_site, it doesn't add a Site_relationship</h2>
 
 <p>Ok so I don't want nested routes for these target sites, because I don't want the target sites to be related to only one single client site! So I am changing the routes file </p>

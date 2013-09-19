@@ -1,6 +1,5 @@
 class TargetSitesController < ApplicationController
-	  # before_action :find_client_site, :only => [:new, :create, :show, :edit ]
-
+	 
 	
 
 	def new
@@ -21,18 +20,41 @@ class TargetSitesController < ApplicationController
 
 	end
 
+  def list
+    @target_sites = TargetSite.all
+  end
+
 
 	def show
         @target_site = TargetSite.find(params[:id])
 
 	end
 
+  def edit
+    @target_site = TargetSite.find(params[:id])
+
+  end
+
+
+  def update
+     @target_site = TargetSite.find(params[:id])
+  
+    if @target_site.update(target_site_params)
+      redirect_to target_site_path, notice: 'Website details were successfully updated.' 
+    else
+      render 'edit'
+    end 
+
+  end
+
+
+  def connect
+    @target_site = TargetSite.find(params[:id])
+
+  end
 
   protected
   
-  # def find_client_site
-	 #    @client_site = ClientSite.find(params[:client_site_id])    
-  # end
 
 
   def target_site_params

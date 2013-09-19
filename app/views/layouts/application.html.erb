@@ -12,7 +12,10 @@
   <ul class="nav nav-tabs pull-right">
 
   <% if current_user %>
-<li><%= link_to "Home", root_path %>
+<li><%= link_to "Home", root_path %></li>
+<li>  <%= link_to "Add a Target Site", new_target_site_path %></li>
+<li>
+<%= link_to "See All Target Sites", target_site_list_path %></li>
 <li><%= link_to 'Settings', edit_user_registration_path(current_user) %></li>
 <li><%= link_to 'Sign out', destroy_user_session_path, :method => 'delete' %></li>
 <% else %>

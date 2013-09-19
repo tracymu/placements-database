@@ -1,0 +1,31 @@
+<h1>Which clients is  <%= @target_site.name %> relevant for?</h1>
+
+
+<h2> Note that this page doesn't actually yet update the database! I'm not sure what it does </h2>
+<h1>Somehow when I submit this form, it is submitting to Target_sites#edit. Why? </h1>
+
+
+<p>
+
+
+	<%= form_for [@target_site]  do |f| %>
+
+      
+
+<% for client_site in ClientSite.find(:all) %>
+	<div>
+	<%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
+		<%=  client_site.name %>
+
+	</div>
+
+<% end %>
+			</br>
+    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
+			</br>
+
+
+
+<% end %>
+
+</p>

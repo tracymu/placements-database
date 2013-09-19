@@ -4,7 +4,7 @@
 
 	<h2><%= @target_site.name %></h2>
 	<p><%= link_to @target_site.url, @target_site.url, :target => 'blank' %></p>
-
+		<p><strong>Page Rank:</strong> <%= @target_site.page_rank %></p>
 		<p><strong>Pages Indexed:</strong> <%= @target_site.pages_indexed %></p>	
 	<p><strong>Backlinks: </strong><%= @target_site.backlinks %></p>
 		<p><strong>Twitter Handle:</strong> <%= @target_site.twitter_handle %></p>
@@ -16,6 +16,24 @@
 
 		<p><%= link_to 'Edit', edit_target_site_path %>
 
-<p>Now what I think I want to do is like the 'choose a friend to recommend to', but 'choose from your client sites to list this as a relationship</p>
 
-<p>Then after you have established a SiteRelationship we will need to make it so that there is established a future_contact - That is, a task that needs to be done. And this will be related to a target site, user and client site. So a whole big nightmare really </p>
+<h3>Use this target_site_connect_path</h3>
+<%= link_to "Choose clients this is relevant for", target_site_connect_path %>
+
+
+<h3> or use this target_site_site_relationship </h3>
+
+<%= link_to "Choose clients this is relevant for", new_target_site_site_relationship_path(@target_site) %>
+
+<% unless @target_site.client_sites.empty? %>
+
+<h3>Currently it has been assigned to </h3>
+
+<ul>
+<% @target_site.client_sites.each do |client_site| %>
+<li><%= client_site.name %> </li>
+<% end %>
+
+</ul>
+
+<% end %>
