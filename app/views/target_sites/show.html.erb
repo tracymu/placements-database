@@ -17,13 +17,30 @@
 		<p><%= link_to 'Edit', edit_target_site_path %>
 
 
-<h3>Use this target_site_connect_path</h3>
+
+<h2>This is all a big nightmare</h2>
+<h3>I think I need to subscribe to http://railscasts.com/pro and watch this <a href="http://railscasts.com/episodes/17-habtm-checkboxes-revised">video</a></h3> 
+
+
+<h3> I have now tried to do this three ways</h3>
+
+<h4>Putting the form on the target_sites show page</h4>
+<p>This says 'website successfully updated' but actually nothing has happened</p>
+
+
+<h4>Use this target_site_connect_path</h4>
 <%= link_to "Choose clients this is relevant for", target_site_connect_path %>
 
+<p>this also seems to try to update through target_sites edit - but still doesn't actually update!</p>
 
-<h3> or use this target_site_site_relationship </h3>
+<h4> new_target_site_site_relationship </h4>
 
 <%= link_to "Choose clients this is relevant for", new_target_site_site_relationship_path(@target_site) %>
+
+<p>this still tries to update the target_site via edit! I can see it via the flash message!</p>
+
+
+
 
 <% unless @target_site.client_sites.empty? %>
 
@@ -37,3 +54,29 @@
 </ul>
 
 <% end %>
+
+
+<p>
+
+
+	<%= form_for [@target_site]  do |f| %>
+
+      
+
+<% for client_site in ClientSite.find(:all) %>
+	<div>
+	<%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
+		<%=  client_site.name %>
+
+	</div>
+
+<% end %>
+			</br>
+    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
+			</br>
+
+
+
+<% end %>
+
+</p>

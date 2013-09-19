@@ -37,6 +37,14 @@ class TargetSitesController < ApplicationController
 
 
   def update
+
+
+    # Note that if I make it so that the 'what clients is this relevant for' information is just done when you update information about that client
+
+    # then I will have to add this to my update method
+    # params[:target_site][:client_site_ids] ||=[]
+
+
      @target_site = TargetSite.find(params[:id])
   
     if @target_site.update(target_site_params)
