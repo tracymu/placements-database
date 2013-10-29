@@ -1,24 +1,20 @@
-On this page do I want tabbed information like:
+<p>On this page do I want tabbed information like:</p>
+<p>Site info | Placements Made | Placements in Progress</p>
 
-Site info | Placements Made | Placements in Progress
-	
+<h2><%= @client_site.name %></h2>
+<h4> Last updated on <%= @client_site.formatted_updated_at %></h4>
+<p><%= link_to @client_site.url, @client_site.url, :target => 'blank' %></p>
+<p><strong>PageRank: </strong> <%= @client_site.page_rank %></p>
+<p><strong>Pages Indexed:</strong> <%= @client_site.pages_indexed %></p>	
+<p><strong>Backlinks: </strong><%= @client_site.backlinks %></p>
+<p><strong>Twitter Handle:</strong> <%= @client_site.twitter_handle %></p>
+<p><strong>Twitter Followers:</strong> <%= @client_site.twitter_followers %></p>
+<p><strong>Facebook Page:</strong> <%= @client_site.facebook_page %></p>
+<p><strong>Facebook Likes:</strong> <%= @client_site.facebook_likes %></p>
+<p><strong>Google Plus Page:</strong> <%= @client_site.google_plus_page %></p>
+<p><strong>Google Plus Likes: </strong><%= @client_site.google_plus_likes %></p>
 
-
-	<h2><%= @client_site.name %></h2>
-	<h4> Last updated on <%= @client_site.formatted_updated_at %></h4>
-	<p><%= link_to @client_site.url, @client_site.url, :target => 'blank' %></p>
-		<p><strong>PageRank: </strong> <%= @client_site.page_rank %></p>
-		<p><strong>Pages Indexed:</strong> <%= @client_site.pages_indexed %></p>	
-	<p><strong>Backlinks: </strong><%= @client_site.backlinks %></p>
-		<p><strong>Twitter Handle:</strong> <%= @client_site.twitter_handle %></p>
-		<p><strong>Twitter Followers:</strong> <%= @client_site.twitter_followers %></p>
-		<p><strong>Facebook Page:</strong> <%= @client_site.facebook_page %></p>
-		<p><strong>Facebook Likes:</strong> <%= @client_site.facebook_likes %></p>
-		<p><strong>Google Plus Page:</strong> <%= @client_site.google_plus_page %></p>
-		<p><strong>Google Plus Likes: </strong><%= @client_site.google_plus_likes %></p>
-
-		<p><%= link_to 'Edit', edit_client_client_site_path %>
-
+<p><strong><%= link_to 'Edit', edit_client_client_site_path %></strong></p>
 
 <h3>Add a new target site</h3>
 
@@ -26,20 +22,13 @@ Site info | Placements Made | Placements in Progress
 
 <%= link_to "See All Target Sites", target_site_list_path %>
 
-
 <h3>These are the site relationships that they have. Note I could only create these relationships in the console. Using SiteRelationship.new </h3>
 
-	<ul>
-				<% @client_site.site_relationships.each do |relationship| %>
-					<li><%= relationship.target_site.name %></li>
-				
-				<% end %>
-			</ul>
-
-
-
-
-
+<ul>
+	<% @client_site.site_relationships.each do |relationship| %>
+		<li><%= relationship.target_site.name %></li>		
+	<% end %>
+</ul>
 
 <h3> And here we can have a list of sites that they want to contact</h3>
-
+<p>Have to put this in obviously somehow</p>

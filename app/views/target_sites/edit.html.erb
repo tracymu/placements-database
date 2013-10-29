@@ -4,36 +4,40 @@
 <%= form_for [@target_site]  do |f| %>
 
   <% @target_site.errors.full_messages.each do |msg| %>
-        <p class="text-warning"><%= msg %></p>
-      <% end %>
-      <div><%= f.label :name %>
-      <%= f.text_field :name %></div>
-   <div><%= f.label :url %>
-      <%= f.text_field :url %></div>
-       <div><%= f.label :page_rank %>
-      <%= f.text_field :page_rank %></div>
-       <div><%= f.label :backlinks %>
-      <%= f.text_field :backlinks %></div>
-       <div><%= f.label :twitter_followers %>
-      <%= f.text_field :twitter_followers %></div>
-       <div><%= f.label :facebook_likes %>
-      <%= f.text_field :facebook_likes %></div>
-       <div><%= f.label :google_plus_likes %>
-      <%= f.text_field :google_plus_likes %></div>
-       <div><%= f.label :twitter_handle %>
-      <%= f.text_field :twitter_handle %></div>
-       <div><%= f.label :facebook_page %>
-      <%= f.text_field :facebook_page %></div>
-       <div><%= f.label :google_plus_page %>
-      <%= f.text_field :google_plus_page %></div>
-       <div><%= f.label :pages_indexed %>
-      <%= f.text_field :pages_indexed %></div>
-
-
-      </br>
-      <%= f.submit "Submit", :class => 'btn btn-primary' %>
-
+    <p class="text-warning"><%= msg %></p>
+  <% end %>
+  <div><%= f.label :name %>
+    <%= f.text_field :name %></div>
+  <div><%= f.label :url %>
+    <%= f.text_field :url %></div>
+  <div><%= f.label :page_rank %>
+    <%= f.text_field :page_rank %></div>
+  <div><%= f.label :backlinks %>
+    <%= f.text_field :backlinks %></div>
+  <div><%= f.label :twitter_followers %>
+    <%= f.text_field :twitter_followers %></div>
+  <div><%= f.label :facebook_likes %>
+    <%= f.text_field :facebook_likes %></div>
+  <div><%= f.label :google_plus_likes %>
+    <%= f.text_field :google_plus_likes %></div>
+  <div><%= f.label :twitter_handle %>
+    <%= f.text_field :twitter_handle %></div>
+  <div><%= f.label :facebook_page %>
+    <%= f.text_field :facebook_page %></div>
+  <div><%= f.label :google_plus_page %>
+    <%= f.text_field :google_plus_page %></div>
+  <div><%= f.label :pages_indexed %>
+    <%= f.text_field :pages_indexed %></div>
+  <div class="field">
+    <%= hidden_field_tag "target_site[client_site_ids][]", nil %>
+    <%  ClientSite.all.each do |client_site| %>
+      <%= check_box_tag "target_site[client_site_ids][]", client_site.id, @target_site.client_site_ids.include?(client_site.id), id: dom_id(client_site) %>
+      <%= label_tag dom_id(client_site), client_site.name %>
+    <% end %>
+  </div>  
+  </br>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
 <% end %>
-</br>
+  </br>
 
-<p>Back to <%= link_to "home", root_path %></p>
+  <p>Back to <%= link_to "home", root_path %></p>

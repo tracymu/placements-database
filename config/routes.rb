@@ -2,16 +2,11 @@ PlacementsDatabase::Application.routes.draw do
 
   devise_for :users
 
-
-
-
   root 'clients#index'
 
-    get '/target_sites/list' => 'target_sites#list', :as => :target_site_list
+  get '/target_sites/list' => 'target_sites#list', :as => :target_site_list
 
-    get '/target_sites/:id/connect' => 'target_sites#connect', :as => :target_site_connect
-
-
+  get '/target_sites/:id/connect' => 'target_sites#connect', :as => :target_site_connect
 
   resources :clients do
     resources :client_sites 
@@ -23,7 +18,8 @@ PlacementsDatabase::Application.routes.draw do
     end
   # end
 
-  resources :site_relationships
+  # I don't think I am allowed to have this when I already have it nested above
+  # resources :site_relationships
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

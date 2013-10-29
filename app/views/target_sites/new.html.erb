@@ -1,52 +1,44 @@
 <h1>Add a New site to target </h1>
 
 <%= form_for [@target_site]  do |f| %>
-
 	<% @target_site.errors.full_messages.each do |msg| %>
-  			<p class="text-warning"><%= msg %></p>
-			<% end %>
-      <div><%= f.label :name %>
-      <%= f.text_field :name %></div>
-   <div><%= f.label :url %>
-      <%= f.text_field :url %></div>
-       <div><%= f.label :page_rank %>
-      <%= f.text_field :page_rank %></div>
-       <div><%= f.label :backlinks %>
-      <%= f.text_field :backlinks %></div>
-       <div><%= f.label :twitter_followers %>
-      <%= f.text_field :twitter_followers %></div>
-       <div><%= f.label :facebook_likes %>
-      <%= f.text_field :facebook_likes %></div>
-       <div><%= f.label :google_plus_likes %>
-      <%= f.text_field :google_plus_likes %></div>
-       <div><%= f.label :twitter_handle %>
-      <%= f.text_field :twitter_handle %></div>
-       <div><%= f.label :facebook_page %>
-      <%= f.text_field :facebook_page %></div>
-       <div><%= f.label :google_plus_page %>
-      <%= f.text_field :google_plus_page %></div>
-       <div><%= f.label :pages_indexed %>
-      <%= f.text_field :pages_indexed %></div>
+		<p class="text-warning"><%= msg %></p>
+	<% end %>
+  
+  <div><%= f.label :name %>
+    <%= f.text_field :name %></div>
+  <div><%= f.label :url %>
+    <%= f.text_field :url %></div>
+  <div><%= f.label :page_rank %>
+    <%= f.text_field :page_rank %></div>
+  <div><%= f.label :backlinks %>
+    <%= f.text_field :backlinks %></div>
+  <div><%= f.label :twitter_followers %>
+    <%= f.text_field :twitter_followers %></div>
+  <div><%= f.label :facebook_likes %>
+    <%= f.text_field :facebook_likes %></div>
+  <div><%= f.label :google_plus_likes %>
+    <%= f.text_field :google_plus_likes %></div>
+  <div><%= f.label :twitter_handle %>
+    <%= f.text_field :twitter_handle %></div>
+  <div><%= f.label :facebook_page %>
+    <%= f.text_field :facebook_page %></div>
+  <div><%= f.label :google_plus_page %>
+    <%= f.text_field :google_plus_page %></div>
+  <div><%= f.label :pages_indexed %>
+    <%= f.text_field :pages_indexed %></div>
 
+  <em>Now I'm not sure if I want this in this form. I'm just testing how it works everywhere, and actually it doesn't work anywhere </em>
 
-
-      <h2>Now I'm not sure if I want this in this form. I'm just testing how it works everywhere, and actually it doesn't work anywhere </h2>
-
-<% for client_site in ClientSite.find(:all) %>
-  <div>
-  <%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
+  <% for client_site in ClientSite.find(:all) %>
+    <div>
+    <%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
     <%=  client_site.name %>
-
-  </div>
-
-<% end %>
-      </br>
-      <%= f.submit "Submit", :class => 'btn btn-primary' %>
-      </br>
-
-
-
+    </div>
+  <% end %>
+  </br>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
+  </br>
 <% end %>
 
-</p>
 <p>Back to <%= link_to "home", root_path %></p>

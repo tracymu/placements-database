@@ -1,42 +1,34 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>PlacementsDatabase</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div class = "container">
-<div class = "header">
-  <ul class="nav nav-tabs pull-right">
-
-  <% if current_user %>
-<li><%= link_to "Home", root_path %></li>
-<li>  <%= link_to "Add a Target Site", new_target_site_path %></li>
-<li>
-<%= link_to "See All Target Sites", target_site_list_path %></li>
-<li><%= link_to 'Settings', edit_user_registration_path(current_user) %></li>
-<li><%= link_to 'Sign out', destroy_user_session_path, :method => 'delete' %></li>
-<% else %>
-<li><%= link_to 'Sign in', new_user_session_path %></li>
-<li><%= link_to 'Sign Up', new_user_registration_path %></li>
-<% end %>
-
-</ul>
-
-</div>
-<% if notice || alert %>
-       <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
-       <% end %>
-
-  <div id="wrap" class="container">
-
-<%= yield %>
-
-<div>
-
-</div>
-</body>
+  <head>
+    <title>PlacementsDatabase</title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class = "container">
+      <div class = "header">
+        <ul class="nav nav-tabs pull-right">
+          <% if current_user %>
+            <li><%= link_to "Home", root_path %></li>
+            <li><%= link_to "Add a Target Site", new_target_site_path %></li>
+            <li><%= link_to "See All Target Sites", target_sites_path %></li>
+            <li><%= link_to 'Settings', edit_user_registration_path(current_user) %></li>
+            <li><%= link_to 'Sign out', destroy_user_session_path, :method => 'delete' %></li>
+          <% else %>
+            <li><%= link_to 'Sign in', new_user_session_path %></li>
+            <li><%= link_to 'Sign Up', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+      </div>
+      <% if notice || alert %>
+        <p class="notice"><%= notice %></p>
+        <p class="alert"><%= alert %></p>
+      <% end %>
+      <div id="wrap" class="container">
+        <%= yield %>
+      <div>
+    </div>
+  </body>
 </html>

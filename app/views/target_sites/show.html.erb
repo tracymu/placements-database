@@ -1,83 +1,46 @@
 <h1>This is the show page for the target_site</h1>
-
-
-
-	<h2><%= @target_site.name %></h2>
-	<p><%= link_to @target_site.url, @target_site.url, :target => 'blank' %></p>
-		<p><strong>Page Rank:</strong> <%= @target_site.page_rank %></p>
-		<p><strong>Pages Indexed:</strong> <%= @target_site.pages_indexed %></p>	
-	<p><strong>Backlinks: </strong><%= @target_site.backlinks %></p>
-		<p><strong>Twitter Handle:</strong> <%= @target_site.twitter_handle %></p>
-		<p><strong>Twitter Followers:</strong> <%= @target_site.twitter_followers %></p>
-		<p><strong>Facebook Page:</strong> <%= @target_site.facebook_page %></p>
-		<p><strong>Facebook Likes:</strong> <%= @target_site.facebook_likes %></p>
-		<p><strong>Google Plus Page:</strong> <%= @target_site.google_plus_page %></p>
-		<p><strong>Google Plus Likes: </strong><%= @target_site.google_plus_likes %></p>
-
-		<p><%= link_to 'Edit', edit_target_site_path %>
-
-
-
+<h2><%= @target_site.name %></h2>
+<p><%= link_to @target_site.url, @target_site.url, :target => 'blank' %></p>
+<p><strong>Page Rank:</strong> <%= @target_site.page_rank %></p>
+<p><strong>Pages Indexed:</strong> <%= @target_site.pages_indexed %></p>	
+<p><strong>Backlinks: </strong><%= @target_site.backlinks %></p>
+<p><strong>Twitter Handle:</strong> <%= @target_site.twitter_handle %></p>
+<p><strong>Twitter Followers:</strong> <%= @target_site.twitter_followers %></p>
+<p><strong>Facebook Page:</strong> <%= @target_site.facebook_page %></p>
+<p><strong>Facebook Likes:</strong> <%= @target_site.facebook_likes %></p>
+<p><strong>Google Plus Page:</strong> <%= @target_site.google_plus_page %></p>
+<p><strong>Google Plus Likes: </strong><%= @target_site.google_plus_likes %></p>
+<p><%= link_to 'Edit', edit_target_site_path %>
 <h2>This is all a big nightmare</h2>
-<h3>I think I need to subscribe to http://railscasts.com/pro and watch this <a href="http://railscasts.com/episodes/17-habtm-checkboxes-revised">video</a></h3> 
-
-
 <h3> I have now tried to do this three ways</h3>
-
 <h4>Putting the form on the target_sites show page</h4>
 <p>This says 'website successfully updated' but actually nothing has happened</p>
-
-
 <h4>Use this target_site_connect_path</h4>
 <%= link_to "Choose clients this is relevant for", target_site_connect_path %>
-
 <p>this also seems to try to update through target_sites edit - but still doesn't actually update!</p>
-
 <h4> new_target_site_site_relationship </h4>
-
 <%= link_to "Choose clients this is relevant for", new_target_site_site_relationship_path(@target_site) %>
-
 <p>this still tries to update the target_site via edit! I can see it via the flash message!</p>
-
-
 <h4> new_site_relationship</h4>
 <p>I wanted to do something like link_to "new_site_relationship page", new_site_relationship  - but this couldn't get working, I guess because of the routes</p>
-
+<br>
 <% unless @target_site.client_sites.empty? %>
-
-<h3>Currently it has been assigned to </h3>
-
-<ul>
-<% @target_site.client_sites.each do |client_site| %>
-<li><%= client_site.name %> </li>
+	<h3>Currently it has been assigned to </h3>
+	<ul>
+		<% @target_site.client_sites.each do |client_site| %>
+			<li><%= client_site.name %> </li>
+		<% end %>	
+	</ul>
 <% end %>
 
-</ul>
-
+<%= form_for [@target_site]  do |f| %>
+	<% for client_site in ClientSite.find(:all) %>
+		<div>
+			<%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
+			<%=  client_site.name %>
+		</div>
+	<% end %>
+	</br>
+	<%= f.submit "Submit", :class => 'btn btn-primary' %>
+	</br>
 <% end %>
-
-
-<p>
-
-
-	<%= form_for [@target_site]  do |f| %>
-
-      
-
-<% for client_site in ClientSite.find(:all) %>
-	<div>
-	<%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
-		<%=  client_site.name %>
-
-	</div>
-
-<% end %>
-			</br>
-    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
-			</br>
-
-
-
-<% end %>
-
-</p>

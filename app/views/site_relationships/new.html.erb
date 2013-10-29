@@ -1,41 +1,17 @@
 <h1>This is the Site Relationships #new page </h1>
-
-
-
-<h2> Note that this page doesn't actually yet update the database! I'm not sure what it does </h2>
-<h2>Somehow when I submit this form, it is submitting to Target_sites#edit. Why? </h2>
-
-
-
+<p> Note that this page doesn't actually yet update the database! I'm not sure what it does </p>
+<p>Somehow when I submit this form, it is submitting to Target_sites#edit. Why? </p>
 <h1>Which clients is  <%= @target_site.name %> relevant for?</h1>
-
-
-<h2> Note that this page doesn't actually yet update the database! I'm not sure what it does </h2>
-
-<p>
-
-
 <h2>Who would you like to recommend <%= @target_site.name %> to?
-
 <%= form_for [@target_site,@site_relationship]  do |f| %>
-      	<% @site_relationship.errors.full_messages.each do |msg| %>
-  			<p class="text-warning"><%= msg %></p>
-			<% end %>
-
-      <div>
-
-      <%= f.collection_select client_sites, :id, :name, :class => 'dropdown-menu' %></div>
-  
-      
-			</br>
-    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
-			</br>
-
-
-
+  <% @site_relationship.errors.full_messages.each do |msg| %>
+  	<p class="text-warning"><%= msg %></p>
+	<% end %>
+  <%= f.collection_select client_sites, :id, :name, :class => 'dropdown-menu' %></div>
+	</br>
+  <%= f.submit "Submit", :class => 'btn btn-primary' %>
+	</br>
 <% end %>
-
 </br>
 <p><%= link_to 'Back to Home', root_path %></p>
 
-</p>

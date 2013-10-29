@@ -1,18 +1,13 @@
-<H1>This is the Index page of the clients controller</h1>
+<h1>This is the Index page of the clients controller</h1>
 
-	<h2>So at the moment you log in and see a list of clients you work on</h2>
+<h2>So at the moment you log in and see a list of clients you work on</h2>
 <p> Of course there will need to be some logic put in place so you only see the relevant clients for you</p>
 <p> Also, I think there was going to be a list of 'tasks' on this page  too? all the messages, etc you need to respond to </p>
 
 <ul>
 	<% @clients.each do |client| %>
-
-
-	<li><%= link_to client.name, client_path(client) %></li>
-
-
+		<li><%= link_to client.name, client_path(client) %></li>
 	<% end %>
 </ul>
-
 
 <p><%= link_to "Add a Client", new_client_path %>
