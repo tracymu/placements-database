@@ -15,18 +15,18 @@
 <p>
 
 
-	<%= form_for [@target_site]  do |f| %>
+<h2>Who would you like to recommend <%= @target_site.name %> to?
 
+<%= form_for [@target_site,@site_relationship]  do |f| %>
+      	<% @site_relationship.errors.full_messages.each do |msg| %>
+  			<p class="text-warning"><%= msg %></p>
+			<% end %>
+
+      <div>
+
+      <%= f.collection_select client_sites, :id, :name, :class => 'dropdown-menu' %></div>
+  
       
-
-<% for client_site in ClientSite.find(:all) %>
-	<div>
-	<%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
-		<%=  client_site.name %>
-
-	</div>
-
-<% end %>
 			</br>
     	<%= f.submit "Submit", :class => 'btn btn-primary' %>
 			</br>
@@ -34,5 +34,8 @@
 
 
 <% end %>
+
+</br>
+<p><%= link_to 'Back to Home', root_path %></p>
 
 </p>

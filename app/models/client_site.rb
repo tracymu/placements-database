@@ -19,7 +19,16 @@ class ClientSite < ActiveRecord::Base
 		self.updated_at.strftime "%d-%m-%Y"
 	end
 
+	# def partner_sites
+	# # Here I am trying to make it so I can access the name of the "target sites" for every relationship the "client site" is in
+		
+	# 	partner_sites = []
 
+	# 	self.site_relationships.each do |relationship|
+	# 		partner_sites << target_site
+	# 	end
+	# 	partner_sites
+	# end
 
 	protected
 

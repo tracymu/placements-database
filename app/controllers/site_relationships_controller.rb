@@ -7,13 +7,16 @@ class SiteRelationshipsController < ApplicationController
 		@site_relationship = @target_site.site_relationships.new   
 	end
 
-  
+  def index
+
+
+  end
 
 
   def create
     @site_relationship = @target_site.site_relationships.new 
 
-    @site_relationship.client_site = ClientSite.find(params[:site_reltaionship][:client_site_id])
+    @site_relationship.client_site = ClientSite.find(params[:site_relationship][:client_site_id])
       notice = "You've made this relationship or something."
   
 

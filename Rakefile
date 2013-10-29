@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-LinksDatabase::Application.load_tasks
+PlacementsDatabase::Application.load_tasks

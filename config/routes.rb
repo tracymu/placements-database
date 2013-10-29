@@ -1,4 +1,4 @@
-LinksDatabase::Application.routes.draw do
+PlacementsDatabase::Application.routes.draw do
 
   devise_for :users
 
@@ -22,6 +22,8 @@ LinksDatabase::Application.routes.draw do
       resources :site_relationships 
     end
   # end
+
+  resources :site_relationships
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

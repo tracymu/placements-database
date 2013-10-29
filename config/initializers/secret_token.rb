@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-LinksDatabase::Application.config.secret_key_base = '2370585878dd4c7fc42d678f55854671a485036c0418dcabce9ecfea521b64072c14719a7bc191790df36f2d6396621d322245bdeb882af06353dbe124135d5f'
+PlacementsDatabase::Application.config.secret_key_base = '2370585878dd4c7fc42d678f55854671a485036c0418dcabce9ecfea521b64072c14719a7bc191790df36f2d6396621d322245bdeb882af06353dbe124135d5f'

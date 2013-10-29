@@ -39,6 +39,8 @@ class ClientSitesController < ApplicationController
     
   def show
         @client_site = ClientSite.find(params[:id])
+        site_relationships = SiteRelationship.where(:id => @client_site.id)
+
   end
 
 

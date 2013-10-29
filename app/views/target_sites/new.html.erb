@@ -29,10 +29,24 @@
       <%= f.text_field :pages_indexed %></div>
 
 
-			</br>
-    	<%= f.submit "Submit", :class => 'btn btn-primary' %>
+
+      <h2>Now I'm not sure if I want this in this form. I'm just testing how it works everywhere, and actually it doesn't work anywhere </h2>
+
+<% for client_site in ClientSite.find(:all) %>
+  <div>
+  <%= check_box_tag "target_site[client_siteids][]", client_site.id, @target_site.client_sites.include?(client_site) %>
+    <%=  client_site.name %>
+
+  </div>
 
 <% end %>
-</br>
+      </br>
+      <%= f.submit "Submit", :class => 'btn btn-primary' %>
+      </br>
 
+
+
+<% end %>
+
+</p>
 <p>Back to <%= link_to "home", root_path %></p>

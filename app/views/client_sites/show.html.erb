@@ -1,6 +1,6 @@
 On this page do I want tabbed information like:
 
-Site info | Links Placed | Links in Progress
+Site info | Placements Made | Placements in Progress
 	
 
 
@@ -27,4 +27,19 @@ Site info | Links Placed | Links in Progress
 <%= link_to "See All Target Sites", target_site_list_path %>
 
 
+<h3>These are the site relationships that they have. Note I could only create these relationships in the console. Using SiteRelationship.new </h3>
+
+	<ul>
+				<% @client_site.site_relationships.each do |relationship| %>
+					<li><%= relationship.target_site.name %></li>
+				
+				<% end %>
+			</ul>
+
+
+
+
+
+
 <h3> And here we can have a list of sites that they want to contact</h3>
+
